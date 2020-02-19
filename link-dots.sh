@@ -25,7 +25,7 @@ echo "done"
 
 # move my custom theme into the oh-my-zsh custom themes folder
 echo "linking agnoster-jkt to $ZSH_CUSTOM/themes"
-ln -s $ZSH_CUSTOM/themes/agnoster-jkt.zsh-theme $dir/agnoster-jkt.zsh-theme
+ln -s $dir/agnoster-jkt.zsh-theme $ZSH_CUSTOM/themes/agnoster-jkt.zsh-theme 
 echo "done"
 
 

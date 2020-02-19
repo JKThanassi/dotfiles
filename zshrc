@@ -5,7 +5,7 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jkthanassi/.oh-my-zsh
+export ZSH=/Users/$USER/.oh-my-zsh
 
 #adding conda path
 #source $HOME/anaconda3/bin/activate
