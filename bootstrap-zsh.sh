@@ -6,6 +6,11 @@ if test ! $(which brew); then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+if test ! $(which zsh); then 
+    echo "installing zsh"
+    brew install zsh
+    sudo chsh -s $(which zsh)
+fi
 # brew install zsh 
 # echo "now changing shell to zsh"
 # sudo chsh -s $(which zsh)
