@@ -23,7 +23,7 @@ filetype indent plugin on
 " Enable syntax highlighting
 syntax on
  
- 
+autocmd BufNewFile,BufRead .env.local set syntax=sh 
 "------------------------------------------------------------
 " Must have options {{{1
 "
