@@ -13,6 +13,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
