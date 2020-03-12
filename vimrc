@@ -142,3 +142,7 @@ set expandtab
 "set shiftwidth=4
 "set tabstop=4
 let g:tex_flavor = "latex"
+
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>h :History<CR>
