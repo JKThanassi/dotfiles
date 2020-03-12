@@ -104,3 +104,6 @@ export CPATH=`xcrun --show-sdk-path`/usr/include
 
 # Created by `userpath` on 2020-01-21 16:10:13
 export PATH="$PATH:/Users/jkthanassi/.local/bin"
+
+# fzf config
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'

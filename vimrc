@@ -124,7 +124,7 @@ set notimeout ttimeout ttimeoutlen=200
  
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
- 
+"  
  
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -143,6 +143,8 @@ set expandtab
 "set tabstop=4
 let g:tex_flavor = "latex"
 
+" fzf stuff
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
+nnoremap <Leader>l :Lines<CR>
