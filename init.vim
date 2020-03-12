@@ -12,6 +12,7 @@ Plug 'neoclide/coc.nvim'            , {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
 Plug 'altercation/vim-colors-solarized'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
