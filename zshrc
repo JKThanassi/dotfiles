@@ -107,3 +107,5 @@ export PATH="$PATH:/Users/jkthanassi/.local/bin"
 
 # fzf config
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
+#gpg config
+export GPG_TTY=$(tty)
