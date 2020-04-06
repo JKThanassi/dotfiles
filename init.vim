@@ -7,6 +7,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'shime/vim-livedown'           , {'for': 'markdown'}
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim'            , {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
@@ -14,7 +16,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': './install --bin' },
 Plug 'ryanoasis/vim-devicons',
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim',
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
