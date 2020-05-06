@@ -86,6 +86,11 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+
+alias pwb="git rev-parse --abbrev-ref HEAD"
+alias pwbcopy="git rev-parse --abbrev-ref HEAD | pbcopy"
+alias linit="source venv/bin/activate; source .env"
+alias ntdw="tmux new-window; tmux split-window -h; tmux split-window -v"
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -109,3 +114,5 @@ export PATH="$PATH:/Users/jkthanassi/.local/bin"
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 #gpg config
 export GPG_TTY=$(tty)
+#pyenv init
+eval "$(pyenv init -)"
