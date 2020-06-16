@@ -94,7 +94,7 @@ prompt_context() {
 # Custom (Random emoji)
   emojis=("⚡️" "🔥" "💀" "👑" "😎" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🔑" "🇹🇭" "🚦" "🌙")
   RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
-  prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
+  prompt_segment $CURRENT_FG default "${emojis[$RAND_EMOJI_N]} "
 }
 
 # Git: branch/detached head, dirty status
@@ -115,7 +115,7 @@ prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment yellow black
+      prompt_segment yellow $CURRENT_FG
     else
       prompt_segment green $CURRENT_FG
     fi
@@ -144,24 +144,30 @@ prompt_git() {
 }
 
 prompt_bzr() {
-    (( $+commands[bzr] )) || return
-    if (bzr status >/dev/null 2>&1); then
-        status_mod=`bzr status | head -n1 | grep "modified" | wc -m`
-        status_all=`bzr status | head -n1 | wc -m`
-        revision=`bzr log | head -n2 | tail -n1 | sed 's/^revno: //'`
-        if [[ $status_mod -gt 0 ]] ; then
-            prompt_segment yellow black
-            echo -n "bzr@"$revision "✚ "
-        else
-            if [[ $status_all -gt 0 ]] ; then
-                prompt_segment yellow black
-                echo -n "bzr@"$revision
-            else
-                prompt_segment green black
-                echo -n "bzr@"$revision
-            fi
-        fi
+  (( $+commands[bzr] )) || return
+
+  # Test if bzr repository in directory hierarchy
+  local dir="$PWD"
+  while [[ ! -d "$dir/.bzr" ]]; do
+    [[ "$dir" = "/" ]] && return
+    dir="${dir:h}"
+  done
+
+  local bzr_status status_mod status_all revision
+  if bzr_status=$(bzr status 2>&1); then
+    status_mod=$(echo -n "$bzr_status" | head -n1 | grep "modified" | wc -m)
+    status_all=$(echo -n "$bzr_status" | head -n1 | wc -m)
+    revision=$(bzr log -r-1 --log-format line | cut -d: -f1)
+    if [[ $status_mod -gt 0 ]] ; then
+      prompt_segment yellow black "bzr@$revision ✚"
+    else
+      if [[ $status_all -gt 0 ]] ; then
+        prompt_segment yellow black "bzr@$revision"
+      else
+        prompt_segment green black "bzr@$revision"
+      fi
     fi
+  fi
 }
 
 prompt_hg() {
@@ -209,7 +215,7 @@ prompt_dir() {
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment black default "(`basename $virtualenv_path`)"
+    prompt_segment $CURRENT_FG default "(`basename $virtualenv_path`)"
   fi
 }
 
