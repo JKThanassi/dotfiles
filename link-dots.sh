@@ -10,6 +10,7 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="vimrc zshrc tmux.conf tmux_theme"  # list of files/folders to symlink in homedir
 nvim_cfg=~/.config/nvim           # nvim config path
+zsh_custom=~/.oh-my-zsh/custom
 
 ##########
 
@@ -24,8 +25,8 @@ cd $dir
 echo "done"
 
 # move my custom theme into the oh-my-zsh custom themes folder
-echo "linking agnoster-jkt to $ZSH_CUSTOM/themes"
-ln -s $dir/agnoster-jkt.zsh-theme $ZSH_CUSTOM/themes/agnoster-jkt.zsh-theme 
+echo "linking agnoster-jkt to $zsh_custom/themes"
+ln -s $dir/agnoster-jkt.zsh-theme $zsh_custom/themes/agnoster-jkt.zsh-theme 
 echo "done"
 
 
