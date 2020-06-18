@@ -19,7 +19,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': './install --bin' },
 Plug 'ryanoasis/vim-devicons',
 Plug 'junegunn/fzf.vim',
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround',
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 syntax enable
