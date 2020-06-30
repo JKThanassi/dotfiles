@@ -10,6 +10,7 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="vimrc zshrc tmux.conf tmux_theme"  # list of files/folders to symlink in homedir
 nvim_cfg=~/.config/nvim           # nvim config path
+bat_cfg=~/.config/bat
 zsh_custom=~/.oh-my-zsh/custom
 
 ##########
@@ -43,3 +44,10 @@ echo "moving nvim config to $olddir"
 mv $nvim_cfg/init.vim $olddir/
 echo "Creating symlink to init.vim in $nvim_cfg"
 ln -s $dir/init.vim $nvim_cfg/init.vim
+
+# move old bat config to dotfiles_old, then create symlink to the updated one
+echo "moving nvim config to $olddir"
+mv $bat_cfg/config $olddir/
+echo "Creating symlink to bat_cfg in $bat_cfg"
+ln -s $dir/bat_cfg $bat_cfg/config
+

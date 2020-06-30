@@ -21,6 +21,9 @@ Plug 'ryanoasis/vim-devicons',
 Plug 'junegunn/fzf.vim',
 Plug 'tpope/vim-surround',
 Plug 'majutsushi/tagbar'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'sjl/tslime.vim'
+Plug 'vim-scripts/paredit.vim'
 
 call plug#end()
 syntax enable
@@ -36,7 +39,21 @@ let g:WebDevIconsOS = 'Darwin'
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
+" }}}
 
+" Rainbow parens config {{{
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
+" }}}
+
+" tslime config {{{
+let g:tslime_ensure_trailing_newlines = 1
+let g:tslime_normal_mapping = '<leader>t'
+let g:tslime_visual_mapping = '<leader>t'
+let g:tslime_vars_mapping = '<leader>T'
+" }}}
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
