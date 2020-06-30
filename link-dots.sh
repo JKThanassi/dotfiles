@@ -20,6 +20,11 @@ echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
 mkdir -p $olddir
 echo "done"
 
+# create dirs for other stuff if needed
+echo "creating dirs for nvim and bat configs if necessary"
+mkdir -p $nvim_cfg
+mkdir -p $bat_cfg
+
 # change to the dotfiles directory
 echo -n "Changing to the $dir directory ..."
 cd $dir
