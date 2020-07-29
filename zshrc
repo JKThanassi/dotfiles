@@ -92,6 +92,7 @@ alias pwb="git rev-parse --abbrev-ref HEAD"
 alias pwbcopy="git rev-parse --abbrev-ref HEAD | pbcopy"
 alias linit="source venv/bin/activate; source .env"
 alias ntdw="tmux new-window; tmux split-window -h; tmux split-window -v"
+alias ctdw="tmux split-window -h; tmux split-window -v"
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
