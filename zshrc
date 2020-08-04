@@ -118,6 +118,9 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 export GPG_TTY=$(tty)
 #pyenv init
 eval "$(pyenv init -)"
+#iterm2_shell_integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # vi mode
 bindkey -v
+

@@ -9,7 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'shime/vim-livedown'           , {'for': 'markdown'}
+Plug 'suan/vim-instant-markdown'           , {'for': 'markdown'}
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim'            , {'branch': 'release'}
@@ -24,12 +24,17 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'sjl/tslime.vim'
 Plug 'vim-scripts/paredit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 syntax enable
 set background=light
 colorscheme solarized
 
+" Markdown config {{
+let g:vim_markdown_folding_disabled = 1
+" }}
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
