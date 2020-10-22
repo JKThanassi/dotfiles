@@ -42,12 +42,13 @@ ln -s $dir/agnoster-jkt.zsh-theme $zsh_custom/themes/agnoster-jkt.zsh-theme
 echo "done"
 
 # move my doom config in to the .doom.d folder
-for file in $emacs_files; do
+for file1 in $emacs_files; do
     echo "Moving any existing emacs dotfiles from $doom_cfg to $olddir/emacs"
-    mv $doom_cfg/$file ~/dotfiles_old/emacs
-    echo "Creating symlink to $file in $doom_cfg directory."
-    ln -s $dir/emacs_conf/$file $doom_cfg/$file
+    mv $doom_cfg/$file1 $olddir
+    echo "Creating symlink to $file1 in $doom_cfg directory."
+    ln -s $dir/$file1 $doom_cfg/$file1
 done
+
 
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
@@ -74,4 +75,4 @@ echo ""
 echo "Running doom sync"
 cd $doom_exec_loc
 ./doom sync
-"restart emacs  for changes to take effect"
+echo "restart emacs for changes to take effect"
