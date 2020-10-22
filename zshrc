@@ -124,3 +124,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # vi mode
 bindkey -v
 
+[ -f "/Users/joekt/.ghcup/env" ] && source "/Users/joekt/.ghcup/env" # ghcup-env
+# haskell language server sourcing>
+PATH=$PATH:/Users/$USER/.local/bin
