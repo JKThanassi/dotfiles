@@ -9,9 +9,12 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="vimrc zshrc tmux.conf tmux_theme"  # list of files/folders to symlink in homedir
+emacs_files="init.el config.el packages.el" # list of doom config files to simlink in the doom cfg folder
 nvim_cfg=~/.config/nvim           # nvim config path
 bat_cfg=~/.config/bat
 zsh_custom=~/.oh-my-zsh/custom
+doom_cfg=~/.doom.d
+doom_exec_loc=~/.emacs.d/bin
 
 ##########
 
@@ -21,9 +24,11 @@ mkdir -p $olddir
 echo "done"
 
 # create dirs for other stuff if needed
-echo "creating dirs for nvim and bat configs if necessary"
+echo "creating dirs for nvim, bat, and doom configs if necessary"
 mkdir -p $nvim_cfg
 mkdir -p $bat_cfg
+mkdir -p $doom_cfg
+
 
 # change to the dotfiles directory
 echo -n "Changing to the $dir directory ..."
@@ -32,8 +37,17 @@ echo "done"
 
 # move my custom theme into the oh-my-zsh custom themes folder
 echo "linking agnoster-jkt to $zsh_custom/themes"
+mv $zsh_custom/themes/agnoster-jkt.zsh-theme $olddir/agnoster-jkt.zsh-theme
 ln -s $dir/agnoster-jkt.zsh-theme $zsh_custom/themes/agnoster-jkt.zsh-theme 
 echo "done"
+
+# move my doom config in to the .doom.d folder
+for file in $emacs_files; do
+    echo "Moving any existing emacs dotfiles from $doom_cfg to $olddir/emacs"
+    mv $doom_cfg/$file ~/dotfiles_old/emacs
+    echo "Creating symlink to $file in $doom_cfg directory."
+    ln -s $dir/emacs_conf/$file $doom_cfg/$file
+done
 
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
@@ -56,3 +70,8 @@ mv $bat_cfg/config $olddir/
 echo "Creating symlink to bat_cfg in $bat_cfg"
 ln -s $dir/bat_cfg $bat_cfg/config
 
+echo ""
+echo "Running doom sync"
+cd $doom_exec_loc
+./doom sync
+"restart emacs  for changes to take effect"
