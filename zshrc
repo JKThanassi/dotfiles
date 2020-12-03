@@ -127,3 +127,4 @@ bindkey -v
 [ -f "/Users/joekt/.ghcup/env" ] && source "/Users/joekt/.ghcup/env" # ghcup-env
 # haskell language server sourcing>
 PATH=$PATH:/Users/$USER/.local/bin
+if [ -e /Users/joekt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/joekt/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
