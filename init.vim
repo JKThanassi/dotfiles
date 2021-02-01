@@ -30,7 +30,7 @@ Plug 'mpickering/hlint-refactor-vim'
 
 call plug#end()
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Markdown config {{
