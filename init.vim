@@ -32,6 +32,8 @@ call plug#end()
 syntax enable
 set background=dark
 colorscheme solarized
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
 
 " Markdown config {{
 let g:vim_markdown_folding_disabled = 1
