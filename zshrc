@@ -100,6 +100,7 @@ alias pwbcopy="git rev-parse --abbrev-ref HEAD | pbcopy"
 alias linit="source venv/bin/activate; source .env"
 alias ntdw="tmux new-window; tmux split-window -h; tmux split-window -v"
 alias ctdw="tmux split-window -h; tmux split-window -v"
+alias branchDiffStaging="git diff $(git merge-base --fork-point staging)"
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -148,7 +149,8 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 #gpg config
 export GPG_TTY=$(tty)
 #pyenv init
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
+#eval "$(pyenv init -)"
 #iterm2_shell_integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -162,3 +164,7 @@ if [ -e /Users/joekt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/joekt/.n
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#path to google app creds
+GOOGLE_APPLICATION_CREDENTIALS=/Users/jkthanassi/Documents/google_creds/dev_creds.json
+
