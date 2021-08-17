@@ -65,7 +65,7 @@ SOLARIZED_THEME=light
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
+# Example format: plugins=(rails igit textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git npm node python tmux osx zsh-autosuggestions zsh-syntax-highlighting)
 
@@ -100,7 +100,6 @@ alias pwbcopy="git rev-parse --abbrev-ref HEAD | pbcopy"
 alias linit="source venv/bin/activate; source .env"
 alias ntdw="tmux new-window; tmux split-window -h; tmux split-window -v"
 alias ctdw="tmux split-window -h; tmux split-window -v"
-alias branchDiffStaging="git diff $(git merge-base --fork-point staging)"
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -166,5 +165,5 @@ if [ -e /Users/joekt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/joekt/.n
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #path to google app creds
-GOOGLE_APPLICATION_CREDENTIALS=/Users/jkthanassi/Documents/google_creds/dev_creds.json
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/jkthanassi/Documents/google_creds/dev_creds.json
 
