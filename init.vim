@@ -34,6 +34,7 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'lervag/vimtex'
 Plug 'mpickering/hlint-refactor-vim'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 call plug#end()
 syntax enable
@@ -57,10 +58,10 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 " }}}
 
 " Rainbow parens config {{{
-augroup rainbow_lisp
-  autocmd!
-  autocmd FileType lisp,clojure,scheme,haskell RainbowParentheses
-augroup END
+"augroup rainbow_lisp
+"  autocmd!
+"  autocmd FileType lisp,clojure,scheme,haskell RainbowParentheses
+"augroup END
 " }}}
 
 " tslime config {{{
@@ -70,14 +71,22 @@ let g:tslime_visual_mapping = '<leader>t'
 let g:tslime_vars_mapping = '<leader>T'
 " }}}
 
+" fzf config {{{ 
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>h :History<CR>
+nnoremap <Leader>r :Rg<CR>
+" }}}
+
 " COC keybinds {{{
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <C-d> <Plug>(coc-rename)
+nmap <silent> <C-g> <Plug>(coc-rename)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-k> <Plug>(coc-diagnostic-next)
+nnoremap <C-F>:CocCommand prettier.formatFile<CR>
 " }}}
 
 " tagbar haskell config {{{
