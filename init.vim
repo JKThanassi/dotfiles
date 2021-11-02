@@ -38,7 +38,7 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 call plug#end()
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
@@ -49,6 +49,7 @@ let g:vim_markdown_folding_disabled = 1
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 
 " NERDTREE {{{
 let g:WebDevIconsOS = 'Darwin'
