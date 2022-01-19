@@ -67,7 +67,7 @@ SOLARIZED_THEME=light
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails igit textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm node python tmux osx zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git npm node python tmux macos zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
