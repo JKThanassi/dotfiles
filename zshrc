@@ -167,3 +167,5 @@ if [ -e /Users/joekt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/joekt/.n
 #path to google app creds
 export GOOGLE_APPLICATION_CREDENTIALS=/Users/jkthanassi/Documents/google_creds/dev_creds.json
 
+# opam configuration
+[[ ! -r /Users/joekt/.opam/opam-init/init.zsh ]] || source /Users/joekt/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

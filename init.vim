@@ -35,10 +35,11 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'lervag/vimtex'
 Plug 'mpickering/hlint-refactor-vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
@@ -49,7 +50,7 @@ let g:vim_markdown_folding_disabled = 1
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+let g:airline_solarized_bg='light'
 
 " NERDTREE {{{
 let g:WebDevIconsOS = 'Darwin'
@@ -88,6 +89,13 @@ nmap <silent> <C-g> <Plug>(coc-rename)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-k> <Plug>(coc-diagnostic-next)
 nnoremap <C-F>:CocCommand prettier.formatFile<CR>
+" }}}
+
+
+" doge_config {{{
+let g:doge_javascript_settings = {
+    \ 'omit_redundant_param_types': 1
+\}
 " }}}
 
 " tagbar haskell config {{{
