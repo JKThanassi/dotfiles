@@ -12,7 +12,7 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/$USER/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 #adding conda path
 #source $HOME/anaconda3/bin/activate
@@ -138,7 +138,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # this should hopefully allow for the installation of pillow
-export CPATH=`xcrun --show-sdk-path`/usr/include
+#export CPATH=`xcrun --show-sdk-path`/usr/include
 
 # Created by `userpath` on 2020-01-21 16:10:13
 export PATH="$PATH:/Users/jkthanassi/.local/bin"
@@ -148,6 +148,8 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 #gpg config
 export GPG_TTY=$(tty)
 #pyenv init
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 #eval "$(pyenv init -)"
 #iterm2_shell_integration
@@ -168,4 +170,8 @@ if [ -e /Users/joekt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/joekt/.n
 export GOOGLE_APPLICATION_CREDENTIALS=/Users/jkthanassi/Documents/google_creds/dev_creds.json
 
 # opam configuration
-[[ ! -r /Users/joekt/.opam/opam-init/init.zsh ]] || source /Users/joekt/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r /home/jkt/.opam/opam-init/init.zsh ]] || source /home/jkt/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+#bat config
+#export BAT_CONFIG_PATH="~/.config/bat/bat.config"
+export BAT_THEME="Solarized (light)"

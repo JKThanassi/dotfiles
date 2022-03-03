@@ -67,9 +67,9 @@ ln -s $dir/init.vim $nvim_cfg/init.vim
 
 # move old bat config to dotfiles_old, then create symlink to the updated one
 echo "moving nvim config to $olddir"
-mv $bat_cfg/config $olddir/
+mv $bat_cfg/bat.config $olddir/
 echo "Creating symlink to bat_cfg in $bat_cfg"
-ln -s $dir/bat_cfg $bat_cfg/config
+ln -s $dir/bat_cfg $bat_cfg/bat.config
 
 echo ""
 echo "Running doom sync"

@@ -24,7 +24,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons',
-Plug '/usr/local/opt/fzf' " <- this is the path to my fzf executable for the below plugin
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim',
 Plug 'tpope/vim-surround',
 Plug 'majutsushi/tagbar'
