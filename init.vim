@@ -136,7 +136,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <C-g> <Plug>(coc-rename)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-k> <Plug>(coc-diagnostic-next)
-nnoremap <C-F>:CocCommand prettier.formatFile<CR>
+nmap <leader>f <Plug>(coc-format)
 " }}}
 
 
