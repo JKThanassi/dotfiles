@@ -107,6 +107,12 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -145,7 +151,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <C-g> <Plug>(coc-rename)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-k> <Plug>(coc-diagnostic-next)
-nnoremap <C-F>:CocCommand prettier.formatFile<CR>
+nmap <leader>f <Plug>(coc-format)
+nmap <leader>c <Plug>(coc-codeaction)
 " }}}
 
 
@@ -198,4 +205,9 @@ let g:tagbar_type_haskell = {
         \ 'instance' : 'ft'
     \ }
 \ }
+" }}}
+" Vimtex_config {{{
+" let g:vimtex_compiler_latexmk_engines = {
+    " \ '_'                : '-xelatex',
+    " \}
 " }}}
