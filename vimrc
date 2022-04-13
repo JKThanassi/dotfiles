@@ -143,13 +143,3 @@ set expandtab
 "set tabstop=4
 let g:tex_flavor = "latex"
 
-" fzf stuff
-nnoremap <C-p> :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>h :History<CR>
-nnoremap <Leader>r :Rg<CR>
-" nnoremap <Leader>l :Lines<CR>
-
-" coc stuff
-" coc-prettier mapping
-nnoremap <C-F>:CocCommand prettier.formatFile<CR>
