@@ -151,7 +151,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <C-g> <Plug>(coc-rename)
 nmap <silent> <C-j> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-k> <Plug>(coc-diagnostic-next)
-nnoremap <C-F>:CocCommand prettier.formatFile<CR>
+nmap <leader>f <Plug>(coc-format)
+nmap <leader>c <Plug>(coc-codeaction)
 " }}}
 
 
@@ -204,4 +205,9 @@ let g:tagbar_type_haskell = {
         \ 'instance' : 'ft'
     \ }
 \ }
+" }}}
+" Vimtex_config {{{
+" let g:vimtex_compiler_latexmk_engines = {
+    " \ '_'                : '-xelatex',
+    " \}
 " }}}
