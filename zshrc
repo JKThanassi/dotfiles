@@ -141,7 +141,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export CPATH=`xcrun --show-sdk-path`/usr/include
 
 # Created by `userpath` on 2020-01-21 16:10:13
-export PATH="$PATH:/Users/jkthanassi/.local/bin"
+export PATH="$PATH:/Users/$USER/.local/bin"
 
 # fzf config
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
@@ -156,7 +156,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # vi mode
 bindkey -v
 
-[ -f "/Users/joekt/.ghcup/env" ] && source "/Users/joekt/.ghcup/env" # ghcup-env
+[ -f "/Users/joekt/.ghcup/env" ] && source "/Users/$USER/.ghcup/env" # ghcup-env
 # haskell language server sourcing>
 PATH=$PATH:/Users/$USER/.local/bin
 if [ -e /Users/joekt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/joekt/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
@@ -165,7 +165,13 @@ if [ -e /Users/joekt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/joekt/.n
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #path to google app creds
-export GOOGLE_APPLICATION_CREDENTIALS=/Users/jkthanassi/Documents/google_creds/dev_creds.json
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/Documents/google_creds/dev_creds.json
 
 # opam configuration
 [[ ! -r /Users/joekt/.opam/opam-init/init.zsh ]] || source /Users/joekt/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/josephkaming-thanassi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/josephkaming-thanassi/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/josephkaming-thanassi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/josephkaming-thanassi/google-cloud-sdk/completion.zsh.inc'; fi
