@@ -175,3 +175,9 @@ if [ -f '/Users/josephkaming-thanassi/google-cloud-sdk/path.zsh.inc' ]; then . '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/josephkaming-thanassi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/josephkaming-thanassi/google-cloud-sdk/completion.zsh.inc'; fi
+
+# swiftenv init
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+# cargo init
+PATH=$PATH:/Users/$USER/.cargo/bin
