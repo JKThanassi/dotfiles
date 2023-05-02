@@ -4,9 +4,9 @@ source ~/.vimrc
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-      silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -37,6 +37,7 @@ Plug 'lervag/vimtex'
 Plug 'mpickering/hlint-refactor-vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'tpope/vim-commentary'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 syntax enable
@@ -61,10 +62,12 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 " }}}
 
 " Rainbow parens config {{{
-"augroup rainbow_lisp
-"  autocmd!
-"  autocmd FileType lisp,clojure,scheme,haskell RainbowParentheses
-"augroup END
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+let g:rainbow#blacklist = [7, 15]
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType * RainbowParentheses
+augroup END
 " }}}
 
 " tslime config {{{
@@ -166,56 +169,56 @@ nmap <leader>c <Plug>(coc-codeaction)
 
 " doge_config {{{
 let g:doge_javascript_settings = {
-    \ 'omit_redundant_param_types': 1
-\}
+      \ 'omit_redundant_param_types': 1
+      \}
 " }}}
 
 " tagbar haskell config {{{
 let g:tagbar_type_haskell = {
-    \ 'ctagsbin'    : 'hasktags',
-    \ 'ctagsargs'   : '-x -c -o-',
-    \ 'kinds'       : [
-        \  'm:modules:0:1',
-        \  'd:data:0:1',
-        \  'd_gadt:data gadt:0:1',
-        \  'nt:newtype:0:1',
-        \  'c:classes:0:1',
-        \  'i:instances:0:1',
-        \  'cons:constructors:0:1',
-        \  'c_gadt:constructor gadt:0:1',
-        \  'c_a:constructor accessors:1:1',
-        \  't:type names:0:1',
-        \  'pt:pattern types:0:1',
-        \  'pi:pattern implementations:0:1',
-        \  'ft:function types:0:1',
-        \  'fi:function implementations:0:1',
-        \  'o:others:0:1'
-    \ ],
-    \ 'sro'          : '.',
-    \ 'kind2scope'   : {
-        \ 'm'        : 'module',
-        \ 'd'        : 'data',
-        \ 'd_gadt'   : 'd_gadt',
-        \ 'c_gadt'   : 'c_gadt',
-        \ 'nt'       : 'newtype',
-        \ 'cons'     : 'cons',
-        \ 'c_a'      : 'accessor',
-        \ 'c'        : 'class',
-        \ 'i'        : 'instance'
-    \ },
-    \ 'scope2kind'   : {
-        \ 'module'   : 'm',
-        \ 'data'     : 'd',
-        \ 'newtype'  : 'nt',
-        \ 'cons'     : 'c_a',
-        \ 'd_gadt'   : 'c_gadt',
-        \ 'class'    : 'ft',
-        \ 'instance' : 'ft'
-    \ }
-\ }
+      \ 'ctagsbin'    : 'hasktags',
+      \ 'ctagsargs'   : '-x -c -o-',
+      \ 'kinds'       : [
+      \  'm:modules:0:1',
+      \  'd:data:0:1',
+      \  'd_gadt:data gadt:0:1',
+      \  'nt:newtype:0:1',
+      \  'c:classes:0:1',
+      \  'i:instances:0:1',
+      \  'cons:constructors:0:1',
+      \  'c_gadt:constructor gadt:0:1',
+      \  'c_a:constructor accessors:1:1',
+      \  't:type names:0:1',
+      \  'pt:pattern types:0:1',
+      \  'pi:pattern implementations:0:1',
+      \  'ft:function types:0:1',
+      \  'fi:function implementations:0:1',
+      \  'o:others:0:1'
+      \ ],
+      \ 'sro'          : '.',
+      \ 'kind2scope'   : {
+      \ 'm'        : 'module',
+      \ 'd'        : 'data',
+      \ 'd_gadt'   : 'd_gadt',
+      \ 'c_gadt'   : 'c_gadt',
+      \ 'nt'       : 'newtype',
+      \ 'cons'     : 'cons',
+      \ 'c_a'      : 'accessor',
+      \ 'c'        : 'class',
+      \ 'i'        : 'instance'
+      \ },
+      \ 'scope2kind'   : {
+      \ 'module'   : 'm',
+      \ 'data'     : 'd',
+      \ 'newtype'  : 'nt',
+      \ 'cons'     : 'c_a',
+      \ 'd_gadt'   : 'c_gadt',
+      \ 'class'    : 'ft',
+      \ 'instance' : 'ft'
+      \ }
+      \ }
 " }}}
 " Vimtex_config {{{
 " let g:vimtex_compiler_latexmk_engines = {
-    " \ '_'                : '-xelatex',
-    " \}
+" \ '_'                : '-xelatex',
+" \}
 " }}}
