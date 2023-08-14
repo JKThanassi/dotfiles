@@ -16,7 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'suan/vim-instant-markdown'           , {'for': 'markdown'}
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim'            , {'branch': 'release'}
@@ -221,4 +221,8 @@ let g:tagbar_type_haskell = {
 " let g:vimtex_compiler_latexmk_engines = {
 " \ '_'                : '-xelatex',
 " \}
+" }}}
+
+" coc-css config {{{
+autocmd FileType scss setl iskeyword+=@-@
 " }}}

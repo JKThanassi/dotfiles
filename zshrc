@@ -157,7 +157,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # vi mode
 bindkey -v
 
-[ -f "/Users/joekt/.ghcup/env" ] && source "/Users/$USER/.ghcup/env" # ghcup-env
+[ -f "/Users/$USER/.ghcup/env" ] && source "/Users/$USER/.ghcup/env" # ghcup-env
 # haskell language server sourcing>
 PATH=$PATH:/Users/$USER/.local/bin
 if [ -e /Users/joekt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/joekt/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
