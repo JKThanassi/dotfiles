@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc zshrc p10k.zsh tmux.conf tmux_theme"  # list of files/folders to symlink in homedir
+files="zshrc p10k.zsh tmux.conf tmux_theme"  # list of files/folders to symlink in homedir
 emacs_files="init.el config.el packages.el" # list of doom config files to simlink in the doom cfg folder
 nvim_cfg=~/.config/nvim           # nvim config path
 bat_cfg=~/.config/bat
