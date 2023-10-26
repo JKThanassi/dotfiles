@@ -3,6 +3,8 @@ let &packpath=&runtimepath
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
+
+set termguicolors
  
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -146,21 +148,22 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim'            , {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'hiphish/rainbow-delimiters.nvim'
 Plug 'ryanoasis/vim-devicons',
 " Plug '/opt/homebrew/bin/fzf' " <- this is the path to my fzf executable for the below plugin
 Plug 'junegunn/fzf',
 Plug 'junegunn/fzf.vim',
 Plug 'tpope/vim-surround',
 Plug 'majutsushi/tagbar'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'sjl/tslime.vim'
 Plug 'vim-scripts/paredit.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -168,14 +171,13 @@ Plug 'lervag/vimtex'
 Plug 'mpickering/hlint-refactor-vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'tpope/vim-commentary'
-Plug 'ap/vim-css-color'
 
 call plug#end()
 syntax enable
+colorscheme solarized8
 set background=light
-colorscheme solarized
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE
+" hi! Normal ctermbg=NONE guibg=NONE
+" hi! NonText ctermbg=NONE guibg=NONE
 
 " Markdown config {{
 let g:vim_markdown_folding_disabled = 1
@@ -192,14 +194,6 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
 " }}}
 
-" Rainbow parens config {{{
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-let g:rainbow#blacklist = [7, 15]
-augroup rainbow_lisp
-  autocmd!
-  autocmd FileType * RainbowParentheses
-augroup END
-" }}}
 
 " tslime config {{{
 let g:tslime_ensure_trailing_newlines = 1
@@ -358,4 +352,27 @@ let g:tagbar_type_haskell = {
 
 " coc-css config {{{
 autocmd FileType scss setl iskeyword+=@-@
+" }}}
+lua require('config/treesitter')
+
+
+" rainbow-parens {{{
+let g:rainbow_delimiters = {
+    \ 'strategy': {
+        \ '': rainbow_delimiters#strategy.global,
+        \ 'vim': rainbow_delimiters#strategy.local,
+    \ },
+    \ 'query': {
+        \ '': 'rainbow-delimiters',
+        \ 'lua': 'rainbow-blocks',
+    \ },
+    \ 'highlight': [
+        \ 'RainbowDelimiterRed',
+        \ 'RainbowDelimiterYellow',
+        \ 'RainbowDelimiterOrange',
+        \ 'RainbowDelimiterGreen',
+        \ 'RainbowDelimiterViolet',
+        \ 'RainbowDelimiterCyan',
+    \ ],
+\ }
 " }}}

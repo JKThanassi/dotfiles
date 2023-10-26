@@ -11,6 +11,7 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 files="zshrc p10k.zsh tmux.conf tmux_theme"  # list of files/folders to symlink in homedir
 emacs_files="init.el config.el packages.el" # list of doom config files to simlink in the doom cfg folder
 nvim_cfg=~/.config/nvim           # nvim config path
+nvim_lua_cfg=~/.config/nvim/lua/config           # nvim lua config path
 bat_cfg=~/.config/bat
 zsh_custom=~/.oh-my-zsh/custom
 doom_cfg=~/.doom.d
@@ -26,6 +27,7 @@ echo "done"
 # create dirs for other stuff if needed
 echo "creating dirs for nvim, bat, and doom configs if necessary"
 mkdir -p $nvim_cfg
+mkdir -p $nvim_lua_cfg
 mkdir -p $bat_cfg
 mkdir -p $doom_cfg
 
@@ -64,6 +66,13 @@ echo "moving nvim config to $olddir"
 mv $nvim_cfg/init.vim $olddir/
 echo "Creating symlink to init.vim in $nvim_cfg"
 ln -s $dir/init.vim $nvim_cfg/init.vim
+
+# move old nvim config to dotfiles_old, then create symlink to the updated one
+echo "moving nvim lua config to $olddir"
+mv $nvim_lua_cfg/treesitter.lua $olddir/
+echo "Creating symlink to treesitter.lua in $nvim_lua_cfg"
+ln -s $dir/treesitter.lua $nvim_lua_cfg/treesitter.lua
+
 
 # move old bat config to dotfiles_old, then create symlink to the updated one
 echo "moving nvim config to $olddir"
