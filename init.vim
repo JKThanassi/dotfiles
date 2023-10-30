@@ -124,8 +124,8 @@ set pastetoggle=<F11>
  
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
  
 " Indentation settings for using hard tabs for indent. Display tabs as
@@ -155,11 +155,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim'            , {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
-" Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'hiphish/rainbow-delimiters.nvim'
 Plug 'ryanoasis/vim-devicons',
-" Plug '/opt/homebrew/bin/fzf' " <- this is the path to my fzf executable for the below plugin
 Plug 'junegunn/fzf',
 Plug 'junegunn/fzf.vim',
 Plug 'tpope/vim-surround',
@@ -176,8 +174,6 @@ call plug#end()
 syntax enable
 colorscheme solarized8
 set background=light
-" hi! Normal ctermbg=NONE guibg=NONE
-" hi! NonText ctermbg=NONE guibg=NONE
 
 " Markdown config {{
 let g:vim_markdown_folding_disabled = 1
