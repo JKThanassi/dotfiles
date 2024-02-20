@@ -23,7 +23,7 @@ export ZSH=/Users/$USER/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-SOLARIZED_THEME=light
+SOLARIZED_THEME=dark
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -182,3 +182,9 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # cargo init
 PATH=$PATH:/Users/$USER/.cargo/bin
+
+#flatc exec init
+PATH=$PATH:/Users/$USER/.flatc/bin
+
+# Notability backend config
+export BULLMQ_PRO_NPM_TOKEN=c48cc7e9-daac-4972-a03c-3d253bc975c2
