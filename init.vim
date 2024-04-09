@@ -167,8 +167,11 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'lervag/vimtex'
 Plug 'mpickering/hlint-refactor-vim'
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'tpope/vim-commentary'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'folke/todo-comments.nvim'
 
 call plug#end()
 syntax enable
@@ -350,6 +353,7 @@ let g:tagbar_type_haskell = {
 autocmd FileType scss setl iskeyword+=@-@
 " }}}
 lua require('config/treesitter')
+lua require('todo-comments').setup()
 
 
 " rainbow-parens {{{
@@ -372,3 +376,4 @@ let g:rainbow_delimiters = {
     \ ],
 \ }
 " }}}
+
