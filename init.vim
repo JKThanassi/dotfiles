@@ -148,11 +148,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
-Plug 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-solarized8', {'branch': 'neovim'}
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'neoclide/coc.nvim'            , {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -175,8 +175,8 @@ Plug 'folke/todo-comments.nvim'
 
 call plug#end()
 syntax enable
-colorscheme solarized8
-set background=dark
+set background=light
+autocmd vimenter * ++nested colorscheme solarized8
 
 " Markdown config {{
 let g:vim_markdown_folding_disabled = 1
@@ -184,7 +184,7 @@ let g:vim_markdown_folding_disabled = 1
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+let g:airline_solarized_bg='light'
 
 " NERDTREE {{{
 let g:WebDevIconsOS = 'Darwin'

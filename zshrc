@@ -23,7 +23,7 @@ export ZSH=/Users/$USER/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-SOLARIZED_THEME=dark
+SOLARIZED_THEME=light
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -185,6 +185,9 @@ PATH=$PATH:/Users/$USER/.cargo/bin
 
 #flatc exec init
 PATH=$PATH:/Users/$USER/.flatc/bin
+
+#bob source init
+PATH=$PATH:/Users/$USER/.local/share/bob/nvim-bin
 
 # Notability backend config
 export BULLMQ_PRO_NPM_TOKEN=c48cc7e9-daac-4972-a03c-3d253bc975c2
