@@ -1,0 +1,12 @@
+{
+  "[typescript][typescriptreact][scss][css][json]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "tsserver.useLocalTsdk": true,
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.debug": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.packageManager": "yarn",
+  "workspace.bottomUpFiletypes": ["ts", "tsx"],
+  "workspace.rootPatterns": [".git"]
+}

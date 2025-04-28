@@ -9,13 +9,11 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="zshrc p10k.zsh tmux.conf tmux_theme"  # list of files/folders to symlink in homedir
-emacs_files="init.el config.el packages.el" # list of doom config files to simlink in the doom cfg folder
 nvim_cfg=~/.config/nvim           # nvim config path
 nvim_lua_cfg=~/.config/nvim/lua/config           # nvim lua config path
 bat_cfg=~/.config/bat
 zsh_custom=~/.oh-my-zsh/custom
 doom_cfg=~/.doom.d
-doom_exec_loc=~/.emacs.d/bin
 
 ##########
 
@@ -43,15 +41,6 @@ mv $zsh_custom/themes/agnoster-jkt.zsh-theme $olddir/agnoster-jkt.zsh-theme
 ln -s $dir/agnoster-jkt.zsh-theme $zsh_custom/themes/agnoster-jkt.zsh-theme 
 echo "done"
 
-# move my doom config in to the .doom.d folder
-for file1 in $emacs_files; do
-    echo "Moving any existing emacs dotfiles from $doom_cfg to $olddir/emacs"
-    mv $doom_cfg/$file1 $olddir
-    echo "Creating symlink to $file1 in $doom_cfg directory."
-    ln -s $dir/$file1 $doom_cfg/$file1
-done
-
-
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
@@ -73,15 +62,15 @@ mv $nvim_lua_cfg/treesitter.lua $olddir/
 echo "Creating symlink to treesitter.lua in $nvim_lua_cfg"
 ln -s $dir/treesitter.lua $nvim_lua_cfg/treesitter.lua
 
-
+# move old coc-settings config to dotfiles_old, then create symlink to the updated one
+echo "moving coc-settings config to $olddir"
+mv $nvim_cfg/coc-settings.json $olddir/
+echo "Creating symlink to coc-settings.json in $nvim_cfg"
+ln -s $dir/coc-settings.json $nvim_cfg/coc-settings.json
+#
 # move old bat config to dotfiles_old, then create symlink to the updated one
 echo "moving nvim config to $olddir"
 mv $bat_cfg/config $olddir/
 echo "Creating symlink to bat_cfg in $bat_cfg"
 ln -s $dir/bat_cfg $bat_cfg/config
 
-echo ""
-echo "Running doom sync"
-cd $doom_exec_loc
-./doom sync
-echo "restart emacs for changes to take effect"
