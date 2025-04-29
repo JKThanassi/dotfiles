@@ -172,6 +172,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'folke/todo-comments.nvim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 call plug#end()
 syntax enable
