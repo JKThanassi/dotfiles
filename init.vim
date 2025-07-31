@@ -113,9 +113,6 @@ set number
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
  
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
-"  
  
 "------------------------------------------------------------
 " Indentation options {{{1
