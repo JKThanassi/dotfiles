@@ -14,6 +14,7 @@ nvim_lua_cfg=~/.config/nvim/lua/config           # nvim lua config path
 bat_cfg=~/.config/bat
 zsh_custom=~/.oh-my-zsh/custom
 doom_cfg=~/.doom.d
+ghostty_cfg=~/.config/ghostty
 
 ##########
 
@@ -28,6 +29,7 @@ mkdir -p $nvim_cfg
 mkdir -p $nvim_lua_cfg
 mkdir -p $bat_cfg
 mkdir -p $doom_cfg
+mkdir -p $ghostty_cfg
 
 
 # change to the dotfiles directory
@@ -69,8 +71,14 @@ echo "Creating symlink to coc-settings.json in $nvim_cfg"
 ln -s $dir/coc-settings.json $nvim_cfg/coc-settings.json
 #
 # move old bat config to dotfiles_old, then create symlink to the updated one
-echo "moving nvim config to $olddir"
+echo "moving bat config to $olddir"
 mv $bat_cfg/config $olddir/
 echo "Creating symlink to bat_cfg in $bat_cfg"
 ln -s $dir/bat_cfg $bat_cfg/config
+
+# move old ghostty config to dotfiles_old, then create symlink to the updated one
+echo "moving ghostty config to $olddir"
+mv $ghostty_cfg/config $olddir/
+echo "Creating symlink to ghostty_cfg in $ghostty_cfg"
+ln -s $dir/ghostty_config $ghostty_cfg/config
 
