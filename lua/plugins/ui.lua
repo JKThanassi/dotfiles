@@ -40,12 +40,6 @@ return {
     lazy = false,
   },
 
-  -- File icons (legacy)
-  {
-    'ryanoasis/vim-devicons',
-    lazy = false,
-  },
-
   -- File icons (modern, nvim-tree requirement)
   {
     'nvim-tree/nvim-web-devicons',

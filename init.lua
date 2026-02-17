@@ -7,7 +7,7 @@
 -- Load core configuration
 require('core.options')
 require('core.keymaps')
-require('core.autocmds')
+require('core.commands')
 
 -- Bootstrap and load plugins
 require('plugins')

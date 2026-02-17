@@ -1,4 +1,4 @@
--- Neovim Autocommands
+-- Neovim commands
 -- Converted from init.vim autocmd statements
 
 -- Set .env.local files to use shell syntax highlighting
@@ -18,3 +18,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   desc = "Add @-@ to keywords for SCSS files",
 })
+
+-- Copy relative path of current buffer
+vim.api.nvim_create_user_command("CopyBufPath", function()
+    local path = vim.fn.expand("%")
+    vim.fn.setreg("+", path)
+    vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {}) 
