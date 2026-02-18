@@ -2,74 +2,102 @@
 -- Colorscheme, statusline, icons, and visual improvements
 
 return {
-  -- Solarized8 colorscheme (neovim branch)
+  -- Tokyo Night colorscheme
   {
-    'lifepillar/vim-solarized8',
-    branch = 'neovim',
+    'folke/tokyonight.nvim',
     lazy = false, -- Load immediately
     priority = 1000, -- Load before other plugins
+    opts = {
+      style = 'day', -- Use day variant
+    },
     config = function()
-      vim.opt.background = 'light'
-      vim.cmd('colorscheme solarized8')
+      require('tokyonight').setup({
+        style = 'day',
+      })
+      vim.cmd('colorscheme tokyonight')
     end,
   },
 
-  -- Airline statusline
+  -- Lualine statusline (modern, Lua-native)
   {
-    'vim-airline/vim-airline',
+    'nvim-lualine/lualine.nvim',
     lazy = false,
     dependencies = {
-      'vim-airline/vim-airline-themes',
+      'nvim-tree/nvim-web-devicons',
     },
-    init = function()
-      vim.g.airline_powerline_fonts = 1
-      vim.g.airline_theme = 'solarized'
-      vim.g.airline_solarized_bg = 'light'
-    end,
-  },
-
-  -- Airline themes
-  {
-    'vim-airline/vim-airline-themes',
-    lazy = false,
-  },
-
-  -- Tmuxline integration (generates tmux statusline from vim-airline)
-  {
-    'edkolev/tmuxline.vim',
-    lazy = false,
-  },
-
-  -- File icons (modern, nvim-tree requirement)
-  {
-    'nvim-tree/nvim-web-devicons',
-    lazy = false,
-  },
-
-  -- Rainbow delimiters for matching parentheses
-  {
-    'hiphish/rainbow-delimiters.nvim',
-    event = 'VeryLazy',
-    config = function()
-      local rainbow_delimiters = require('rainbow-delimiters')
-      vim.g.rainbow_delimiters = {
-        strategy = {
-          [''] = rainbow_delimiters.strategy.global,
-          vim = rainbow_delimiters.strategy['local'],
+    opts = {
+      options = {
+        icons_enabled = true,
+        theme = 'auto',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        disabled_filetypes = {
+          statusline = {},
+          winbar = {},
         },
-        query = {
-          [''] = 'rainbow-delimiters',
-          lua = 'rainbow-blocks',
+        ignore_focus = {},
+        always_divide_middle = true,
+        always_show_tabline = true,
+        globalstatus = false,
+        refresh = {
+          statusline = 1000,
+          tabline = 1000,
+          winbar = 1000,
+          refresh_time = 16, -- ~60fps
+          events = {
+            'WinEnter',
+            'BufEnter',
+            'BufWritePost',
+            'SessionLoadPost',
+            'FileChangedShellPost',
+            'VimResized',
+            'Filetype',
+            'CursorMoved',
+            'CursorMovedI',
+            'ModeChanged',
+          },
+        }      },
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          lualine_c = { 'filename' },
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' },
         },
-        highlight = {
-          'RainbowDelimiterRed',
-          'RainbowDelimiterYellow',
-          'RainbowDelimiterOrange',
-          'RainbowDelimiterGreen',
-          'RainbowDelimiterViolet',
-          'RainbowDelimiterCyan',
-        },
-      }
-    end,
-  },
-}
+      },
+    },
+
+    -- File icons (modern, nvim-tree requirement)
+    {
+      'nvim-tree/nvim-web-devicons',
+      lazy = false,
+    },
+
+    -- Rainbow delimiters for matching parentheses
+    {
+      'hiphish/rainbow-delimiters.nvim',
+      event = 'VeryLazy',
+      config = function()
+        local rainbow_delimiters = require('rainbow-delimiters')
+        vim.g.rainbow_delimiters = {
+          strategy = {
+            [''] = rainbow_delimiters.strategy.global,
+            vim = rainbow_delimiters.strategy['local'],
+          },
+          query = {
+            [''] = 'rainbow-delimiters',
+            lua = 'rainbow-blocks',
+          },
+          highlight = {
+            'RainbowDelimiterRed',
+            'RainbowDelimiterYellow',
+            'RainbowDelimiterOrange',
+            'RainbowDelimiterGreen',
+            'RainbowDelimiterViolet',
+            'RainbowDelimiterCyan',
+          },
+        }
+      end,
+    },
+  }
