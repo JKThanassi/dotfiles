@@ -1,7 +1,7 @@
 return {
 	-- Override tokyonight to use day style (LazyVim default is "night")
 	-- { "folke/tokyonight.nvim", opts = { style = "day" } },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = { flavor = "latte" } },
+	{ "catppuccin/nvim", name = "catppuccin", opts = { flavor = "latte" } },
 
 	-- Disable snacks scroll animation
 	{ "folke/snacks.nvim", opts = { scroll = { enabled = false } } },

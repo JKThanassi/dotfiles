@@ -9,10 +9,10 @@
 dir=~/dotfiles                              # dotfiles directory
 olddir=~/dotfiles_old                       # old dotfiles backup directory
 files="zshrc p10k.zsh tmux.conf tmux_theme" # list of files/folders to symlink in homedir
-nvim_cfg=~/.config/nvim                     # nvim config path
-nvim_lua_cfg=~/.config/nvim/lua             # nvim lua config path
+non_dot_files="Brewfile"
+nvim_cfg=~/.config/nvim         # nvim config path
+nvim_lua_cfg=~/.config/nvim/lua # nvim lua config path
 bat_cfg=~/.config/bat
-zsh_custom=~/.oh-my-zsh/custom
 doom_cfg=~/.doom.d
 ghostty_cfg=~/.config/ghostty
 aerospace_cfg=~/.config/aerospace
@@ -37,18 +37,20 @@ echo -n "Changing to the $dir directory ..."
 cd $dir
 echo "done"
 
-# move my custom theme into the oh-my-zsh custom themes folder
-echo "linking agnoster-jkt to $zsh_custom/themes"
-mv $zsh_custom/themes/agnoster-jkt.zsh-theme $olddir/agnoster-jkt.zsh-theme
-ln -s $dir/agnoster-jkt.zsh-theme $zsh_custom/themes/agnoster-jkt.zsh-theme
-echo "done"
-
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
   echo "Moving any existing dotfiles from ~ to $olddir"
   mv ~/.$file ~/dotfiles_old/
   echo "Creating symlink to $file in home directory."
   ln -s $dir/$file ~/.$file
+done
+
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
+for file in $non_dot_files; do
+  echo "Moving any existing dotfiles from ~ to $olddir"
+  mv ~/$file ~/dotfiles_old/
+  echo "Creating symlink to $file in home directory."
+  ln -s $dir/$file ~/$file
 done
 
 # move old nvim config to dotfiles_old, then create symlink to the updated one
