@@ -23,7 +23,6 @@ export ZSH=/Users/$USER/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-SOLARIZED_THEME=light
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -148,11 +147,6 @@ export PATH="$PATH:/Users/$USER/.local/bin"
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 #gpg config
 export GPG_TTY=$(tty)
-#pyenv init
-eval "$(pyenv init --path)"
-#eval "$(pyenv init -)"
-#iterm2_shell_integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # vi mode
 bindkey -v
@@ -172,10 +166,10 @@ export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/Documents/google_creds/dev_cr
 [[ ! -r /Users/joekt/.opam/opam-init/init.zsh ]] || source /Users/joekt/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/josephkaming-thanassi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/josephkaming-thanassi/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/josephkaming-thanassi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/josephkaming-thanassi/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/josephkaming-thanassi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/josephkaming-thanassi/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/Users/josephkaming-thanassi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/josephkaming-thanassi/google-cloud-sdk/completion.zsh.inc'; fi
 
 # swiftenv init
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
