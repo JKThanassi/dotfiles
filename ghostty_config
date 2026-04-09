@@ -87,3 +87,8 @@ keybind = ctrl+a>l=goto_split:right
 keybind = ctrl+a>z=toggle_split_zoom
 
 keybind = ctrl+a>e=equalize_splits
+
+# remap quit to crtl+q+0
+keybind = ctrl+q>0=quit
+keybind = cmd+q=ignore
+keybind = cmd+w=ignore

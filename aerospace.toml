@@ -186,3 +186,9 @@ on-mode-changed = []
   9 = 2
   10 = 2
 
+
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "layout floating",
+]
