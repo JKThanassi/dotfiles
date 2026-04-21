@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                              # dotfiles directory
 olddir=~/dotfiles_old                       # old dotfiles backup directory
-files="zshrc p10k.zsh tmux.conf tmux_theme" # list of files/folders to symlink in homedir
+files="zshrc p10k.zsh tmux.conf tmux_theme gitconfig" # list of files/folders to symlink in homedir
 non_dot_files="Brewfile"
 nvim_cfg=~/.config/nvim         # nvim config path
 nvim_lua_cfg=~/.config/nvim/lua # nvim lua config path
@@ -16,6 +16,7 @@ bat_cfg=~/.config/bat
 doom_cfg=~/.doom.d
 ghostty_cfg=~/.config/ghostty
 aerospace_cfg=~/.config/aerospace
+lazygit_cfg=~/Library/Application\ Support/lazygit
 
 ##########
 
@@ -31,6 +32,7 @@ mkdir -p $bat_cfg
 mkdir -p $doom_cfg
 mkdir -p $ghostty_cfg
 mkdir -p $aerospace_cfg
+mkdir -p "$lazygit_cfg"
 
 # change to the dotfiles directory
 echo -n "Changing to the $dir directory ..."
@@ -89,3 +91,9 @@ echo "moving aerospace config to $olddir"
 mv $aerospace_cfg/aerospace.toml $olddir/
 echo "Creating symlink to aerospace.toml in $aerospace_cfg"
 ln -s $dir/aerospace.toml $aerospace_cfg/aerospace.toml
+
+# move old lazygit config to dotfiles_old, then create symlink to the updated one
+echo "moving lazygit config to $olddir"
+mv "$lazygit_cfg/config.yml" $olddir/ 2>/dev/null || true
+echo "Creating symlink to lazygit config in $lazygit_cfg"
+ln -s $dir/lazygit/config.yml "$lazygit_cfg/config.yml"
