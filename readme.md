@@ -2,9 +2,11 @@
 
 ### installation instructions
 
-1. If this is a new machine run zsh-bootstrap.sh then bootstrap-brew-emacs.sh
-    - This will install oh my zsh and several plugins used in my `.zshrc`
-    - The second script will install all the packages in the `Brewfile` and then install doom emacs.
-        - This step will take a while
-2. Run the `link-dots.sh` script to simlink the dotfiles
-
+1. On a new machine, run `bootstrap.sh`. This will:
+    - Install Homebrew, zsh, and set zsh as the default shell
+    - Install Oh My Zsh plus the plugins/theme used in `.zshrc` (zsh-autosuggestions, zsh-syntax-highlighting, powerlevel10k)
+    - Install everything in the `Brewfile`
+    - Install Neovim stable via `bob`
+    - Symlink the dotfiles into place by invoking `link-dots.sh`
+    - Install Python via `uv` and Node LTS via `nvm`
+2. If you only need to (re)create symlinks on an already-bootstrapped machine, run `link-dots.sh` directly. It backs up any existing non-symlink targets to `~/dotfiles_old/` before linking.

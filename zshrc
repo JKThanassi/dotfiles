@@ -183,5 +183,10 @@ PATH=$PATH:/Users/$USER/.flatc/bin
 #bob source init
 PATH=$PATH:/Users/$USER/.local/share/bob/nvim-bin
 
+#bun config
+export BUN_INSTALL="$HOME/.bun"
+
+PATH="$BUN_INSTALL/bin:$PATH"
+
 # Notability backend config
 export BULLMQ_PRO_NPM_TOKEN=c48cc7e9-daac-4972-a03c-3d253bc975c2
