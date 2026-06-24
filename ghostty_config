@@ -48,11 +48,11 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 theme = Catppuccin Latte
-font-family = FantasqueSansM Nerd Font Bold
-font-family-bold = FantasqueSansM Nerd Font Bold
-font-family-bold-italic = FantasqueSansM Nerd Font Bold Italic
-font-family-italic = FantasqueSansM Nerd Font Italic
-font-size = 15
+font-family = FantasqueSansM Nerd Font Mono
+font-family-bold = FantasqueSansM Nerd Font Mono Bold
+font-family-bold-italic = FantasqueSansM Nerd Font Mono Bold Italic
+font-family-italic = FantasqueSansM Nerd Font Mono Italic 
+font-size = 16
 
 keybind = ctrl+a>c=new_tab
 keybind = ctrl+a>x=close_surface
