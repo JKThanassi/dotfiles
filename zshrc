@@ -190,3 +190,16 @@ PATH="$BUN_INSTALL/bin:$PATH"
 
 # Notability backend config
 export BULLMQ_PRO_NPM_TOKEN=c48cc7e9-daac-4972-a03c-3d253bc975c2
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jkthanassi/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jkthanassi/Documents/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jkthanassi/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jkthanassi/Documents/google-cloud-sdk/completion.zsh.inc'; fi
+
+# >>> open-knowledge cli >>>
+# ! Contents within this block are managed by Open Knowledge. Do not edit.
+# ! Delete this whole block to opt out — Open Knowledge will not re-add it.
+[ -f "$HOME/.ok/env.sh" ] && . "$HOME/.ok/env.sh"
+# <<< open-knowledge cli <<<
+
