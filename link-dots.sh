@@ -33,4 +33,6 @@ link "$DIR/lua"                        ~/.config/nvim/lua
 link "$DIR/bat_cfg"                    ~/.config/bat/config
 link "$DIR/ghostty_config"             ~/.config/ghostty/config
 link "$DIR/aerospace.toml"             ~/.config/aerospace/aerospace.toml
+link "$DIR/btop/btop.conf"             ~/.config/btop/btop.conf
+link "$DIR/btop/themes"                ~/.config/btop/themes
 link "$DIR/lazygit/config.yml"         ~/Library/Application\ Support/lazygit/config.yml
