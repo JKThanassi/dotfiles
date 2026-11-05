@@ -62,8 +62,6 @@ if [[ -f "$HOME/Documents/google-cloud-sdk/path.zsh.inc" ]]; then
   source "$HOME/Documents/google-cloud-sdk/path.zsh.inc"
   source "$HOME/Documents/google-cloud-sdk/completion.zsh.inc"
 fi
-[[ -f "$HOME/Documents/google_creds/dev_creds.json" ]] &&
-  export GOOGLE_APPLICATION_CREDENTIALS="$HOME/Documents/google_creds/dev_creds.json"
 
 # --- Notability: BullMQ Pro npm token, read from 1Password only when needed ---
 # Set BULLMQ_OP_REF (an op:// secret reference) in ~/.zshrc.local.
