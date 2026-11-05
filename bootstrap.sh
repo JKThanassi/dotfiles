@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-DIR=~/dotfiles
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 info() { printf "\n\033[1;34m==> %s\033[0m\n" "$1"; }
 ok()   { printf "\033[1;32m    %s\033[0m\n" "$1"; }
@@ -87,16 +87,17 @@ else
   exit 1
 fi
 
-# --- nvm + Node LTS ---
-info "nvm + Node LTS"
-export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
-if [[ ! -d "$NVM_DIR" ]]; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# --- Node via fnm ---
+info "Node LTS (via fnm)"
+if command -v fnm &>/dev/null; then
+  eval "$(fnm env --shell bash)"
+  fnm install --lts
+  fnm default lts-latest
+  fnm exec --using=default corepack enable
+  ok "Node $(fnm exec --using=default node --version) installed"
+else
+  echo "fnm not found — should have been installed via Brewfile"
+  exit 1
 fi
-# Source nvm for this script
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-nvm install --lts
-nvm alias default lts/*
-ok "Node $(node --version) installed"
 
 info "All done!"

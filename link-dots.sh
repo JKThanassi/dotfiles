@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-DIR=~/dotfiles
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ok() { printf "\033[1;32m    %s\033[0m\n" "$1"; }
 
@@ -20,7 +20,7 @@ link() {
 mkdir -p ~/dotfiles_old
 
 # Dot-prefixed files in ~
-for f in zshrc p10k.zsh tmux.conf tmux_theme gitconfig; do
+for f in zshrc zprofile p10k.zsh tmux.conf tmux_theme gitconfig; do
   link "$DIR/$f" ~/."$f"
 done
 
