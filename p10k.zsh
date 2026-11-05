@@ -56,7 +56,7 @@
     pyenv                   # python environment (https://github.com/pyenv/pyenv)
     goenv                   # go environment (https://github.com/syndbg/goenv)
     nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
-    nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
+    fnm                     # node.js version from fnm, when not the default (custom, below)
     nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
     # node_version          # node.js version
     # go_version            # go version (https://golang.org)
@@ -971,6 +971,17 @@
   typeset -g POWERLEVEL9K_NVM_FOREGROUND=70
   # Custom icon.
   # typeset -g POWERLEVEL9K_NVM_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  ##################[ fnm: node.js version from fnm (custom segment) ]##################
+  # Like the nvm segment: shows the active Node version only when it differs from fnm's default.
+  # Reads fnm's symlinks instead of running `node`, so it costs nothing per prompt.
+  function prompt_fnm() {
+    [[ -n $FNM_MULTISHELL_PATH && -n $FNM_DIR ]] || return
+    local current=${FNM_MULTISHELL_PATH:A} default=$FNM_DIR/aliases/default
+    [[ $current == */node-versions/*/installation ]] || return   # "system" node
+    [[ $current == ${default:A} ]] && return
+    p10k segment -f 70 -i NODE_ICON -t "${${current:h:t}#v}"
+  }
 
   ############[ nodeenv: node.js environment (https://github.com/ekalinin/nodeenv) ]############
   # Nodeenv color.
